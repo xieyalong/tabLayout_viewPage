@@ -14,7 +14,6 @@ public class SegmentView_Activity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segment_view);
         SegmentView svTab0 = (SegmentView) findViewById(R.id.sv_tab0);
-        svTab0.setTitles(Arrays.asList("标签一",
-                "标签二"));
+        svTab0.setTitles(Arrays.asList("标签一", "标签二"));
     }
 }

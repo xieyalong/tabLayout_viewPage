@@ -36,6 +36,7 @@ public class SegmentView extends View {
     private Paint mPaintB;
     private int mColorA;
     private int mColorB;
+    private int mColorTextDefult;
 
     private List<String> mTitles = new ArrayList<>(); // Variables Titles
     private String mStrTitles;
@@ -71,6 +72,7 @@ public class SegmentView extends View {
         mStrTitles = typedArray.getString(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_titles);
         mColorA = typedArray.getColor(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_colorMain, ContextCompat.getColor(context, R.color.colorAccent));
         mColorB = typedArray.getColor(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_colorSub, ContextCompat.getColor(context, R.color.colorPrimary));
+        mColorTextDefult= typedArray.getColor(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_color_text_defult, ContextCompat.getColor(context, R.color.colorAccent));
         mTextSize = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_textSize, dip2px(context, 14));
         mRectRadius = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_radius, -1);
         mDivideWidth = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_divideWidth, dip2px(context, 1));
@@ -147,7 +149,9 @@ public class SegmentView extends View {
                         space * 2 * i + mDivideWidth / 2, mHeight, mPaintA);
             }
             // Draw title
+//            mPaintA.setColor(mColorTextDefult);设置默认字体 未选中状态下
             canvas.drawText(mTitles.get(i), space * 2 * i + space, starty, mCurIndex == i ? mPaintB : mPaintA);
+            mPaintA.setColor(mColorA);
         }
     }
 
