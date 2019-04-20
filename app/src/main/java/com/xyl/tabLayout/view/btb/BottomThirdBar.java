@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.FloatRange;
 import android.support.annotation.IntDef;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,6 @@ import android.widget.Scroller;
 
 
 import com.xyl.tabLayout.R;
-import com.xyl.tabLayout.Util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -63,7 +63,7 @@ public class BottomThirdBar extends ViewGroup implements View.OnClickListener {
         this.mScroller = new Scroller(context);
         this.mItemViews = new SparseArray<>();
         this.mPageViews = new ArrayList<>();
-        this.mWidthNext = Util.dip2px(context, 36);
+        this.mWidthNext = dip2px(context, 36);
     }
 
     @Override
@@ -339,5 +339,12 @@ public class BottomThirdBar extends ViewGroup implements View.OnClickListener {
 
     public interface OnClickListener {
         void onClick(int position, Item item);
+    }
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (dpValue * (metrics.densityDpi / 160f));
     }
 }

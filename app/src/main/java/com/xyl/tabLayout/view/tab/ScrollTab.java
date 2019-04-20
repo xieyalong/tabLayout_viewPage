@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -17,7 +18,6 @@ import android.widget.LinearLayout;
 
 
 import com.xyl.tabLayout.R;
-import com.xyl.tabLayout.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,14 +86,14 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.lib_pub_ScrollTab);
         mType = typedArray.getInt(R.styleable.lib_pub_ScrollTab_lib_pub_stab_type, TYPE_VIEW);
         mIsAvag = typedArray.getBoolean(R.styleable.lib_pub_ScrollTab_lib_pub_stab_avag, false);
-        mPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_padding, Util.dip2px(context, 12));
+        mPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_padding, dip2px(context, 12));
         mStrTitles = typedArray.getString(R.styleable.lib_pub_ScrollTab_lib_pub_stab_titles);
         mIndicatorType = typedArray.getInt(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorType, TYPE_INDICATOR_TREND);
         mIndicatorColor = typedArray.getColor(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorColor, ContextCompat.getColor(context, R.color.colorAccent));
-        mIndicatorWidth = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWidth, Util.dip2px(context, 30));
-        mIndicatorWeight = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWeight, Util.dip2px(context, 1));
-        mIndicatorRadius = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorRadius, Util.dip2px(context, 0.5f));
-        mIndicatorPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorPadding, Util.dip2px(context, 5));
+        mIndicatorWidth = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWidth, dip2px(context, 30));
+        mIndicatorWeight = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWeight, dip2px(context, 1));
+        mIndicatorRadius = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorRadius, dip2px(context, 0.5f));
+        mIndicatorPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorPadding, dip2px(context, 5));
         typedArray.recycle();
     }
 
@@ -313,5 +313,12 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
 
     public void setOnTabListener(OnTabListener l) {
         this.mListener = l;
+    }
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (dpValue * (metrics.densityDpi / 160f));
     }
 }

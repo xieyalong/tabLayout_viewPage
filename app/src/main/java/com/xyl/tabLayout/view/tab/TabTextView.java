@@ -3,13 +3,14 @@ package com.xyl.tabLayout.view.tab;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.xyl.tabLayout.R;
-import com.xyl.tabLayout.Util;
 
 
 /**
@@ -46,7 +47,7 @@ public class TabTextView extends View implements TabView {
     }
 
     private void init(Context context) {
-        mTextSize = Util.dip2px(context, 15);
+        mTextSize = dip2px(context, 15);
         mTextColor = ContextCompat.getColor(context, R.color.colorPrimary);
         mTextColorFocus = ContextCompat.getColor(context, R.color.colorAccent);
 
@@ -55,7 +56,7 @@ public class TabTextView extends View implements TabView {
         mPaint.setTextSize(mTextSize);
         mPaint.setColor(mTextColor);
 
-        mTextHeight = Util.getTextHeight(mPaint);
+        mTextHeight = getTextHeight(mPaint);
     }
 
     @Override
@@ -71,7 +72,7 @@ public class TabTextView extends View implements TabView {
         if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
             mWidth = MeasureSpec.getSize(widthMeasureSpec);
         } else {
-            mWidth = Util.getTextWidth(mText, mPaint) + mPadding * 2;
+            mWidth = getTextWidth(mText, mPaint) + mPadding * 2;
         }
         mHeight = getDefaultSize(getSuggestedMinimumWidth(), heightMeasureSpec);
         setMeasuredDimension(mWidth, mHeight);
@@ -103,5 +104,21 @@ public class TabTextView extends View implements TabView {
     @Override
     public void onScroll(float factor) {
 
+    }
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (dpValue * (metrics.densityDpi / 160f));
+    }
+    public static float getTextHeight(Paint p) {
+        Paint.FontMetrics fm = p.getFontMetrics();
+        return (float) ((Math.ceil(fm.descent - fm.top) + 2) / 2);
+    }
+    public static int getTextWidth(String str, Paint paint) {
+        Rect bounds = new Rect();
+        paint.getTextBounds(str, 0, str.length(), bounds);
+        return bounds.width();
     }
 }

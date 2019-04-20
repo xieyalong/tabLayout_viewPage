@@ -10,13 +10,13 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
 
 import com.xyl.tabLayout.R;
-import com.xyl.tabLayout.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,10 +71,10 @@ public class SegmentView extends View {
         mStrTitles = typedArray.getString(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_titles);
         mColorA = typedArray.getColor(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_colorMain, ContextCompat.getColor(context, R.color.colorAccent));
         mColorB = typedArray.getColor(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_colorSub, ContextCompat.getColor(context, R.color.colorPrimary));
-        mTextSize = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_textSize, Util.dip2px(context, 14));
+        mTextSize = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_textSize, dip2px(context, 14));
         mRectRadius = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_radius, -1);
-        mDivideWidth = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_divideWidth, Util.dip2px(context, 1));
-        mPadding = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_borderWidth, Util.dip2px(context, 1));
+        mDivideWidth = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_divideWidth, dip2px(context, 1));
+        mPadding = typedArray.getDimension(R.styleable.lib_pub_SegmentView_lib_pub_segmentv_borderWidth, dip2px(context, 1));
         typedArray.recycle();
     }
 
@@ -98,7 +98,7 @@ public class SegmentView extends View {
         mPaintB.setTextAlign(Paint.Align.CENTER);
 
         // Get title height px
-        mHeightText = (int) Util.getTextHeight(mPaintB);
+        mHeightText = (int) getTextHeight(mPaintB);
 
         if (!TextUtils.isEmpty(mStrTitles)) {
             String[] strs = mStrTitles.split(";");
@@ -239,5 +239,16 @@ public class SegmentView extends View {
 
     public void setOnSelectedListener(OnSelectedListener listener) {
         this.mListener = listener;
+    }
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (dpValue * (metrics.densityDpi / 160f));
+    }
+    public static float getTextHeight(Paint p) {
+        Paint.FontMetrics fm = p.getFontMetrics();
+        return (float) ((Math.ceil(fm.descent - fm.top) + 2) / 2);
     }
 }
