@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tab 组件"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+
+            <com.xyl.tabLayout.view.btb.BottomThirdBar
+                android:id="@+id/btb_bar0"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="12dp" />
+
+            <com.xyl.tabLayout.view.btb.BottomThirdBar
+                android:id="@+id/btb_bar1"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="12dp" />
+
+            <com.xyl.tabLayout.view.btb.BottomThirdBar
+                android:id="@+id/btb_bar2"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="12dp" />
+
+            <com.xyl.tabLayout.view.btb.BottomThirdBar
+                android:id="@+id/btb_bar3"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="12dp" />
+
+            <com.xyl.tabLayout.view.SegmentView
+                android:id="@+id/sv_tab0"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_marginTop="12dp"
+                app:lib_pub_segmentv_borderWidth="1dp"
+                app:lib_pub_segmentv_colorMain="#008577"
+                app:lib_pub_segmentv_colorSub="#ffffff"
+                app:lib_pub_segmentv_divideWidth="1dp"
+                app:lib_pub_segmentv_radius="4dp"
+                app:lib_pub_segmentv_textSize="15dp" />
+
+            <com.xyl.tabLayout.view.SegmentView
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_marginTop="12dp"
+                app:lib_pub_segmentv_borderWidth="2dp"
+                app:lib_pub_segmentv_colorMain="#008577"
+                app:lib_pub_segmentv_colorSub="#ffffff"
+                app:lib_pub_segmentv_divideWidth="4dp"
+                app:lib_pub_segmentv_radius="4dp"
+                app:lib_pub_segmentv_textSize="15dp"
+                app:lib_pub_segmentv_titles="标签一;标签二;标签三;标签四" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="true"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorRadius="0dp"
+                app:lib_pub_stab_indicatorType="none"
+                app:lib_pub_stab_indicatorWeight="2dp"
+                app:lib_pub_stab_indicatorWidth="65dp"
+                app:lib_pub_stab_titles="标签A;标签B"
+                app:lib_pub_stab_type="view_group" />
+
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab00"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="true"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="trend"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab01"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="true"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="translation"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab02"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="true"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="none"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager0"
+                android:layout_width="match_parent"
+                android:layout_height="95dp" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="false"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="trend"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab11"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="false"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="translation"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <com.xyl.tabLayout.view.tab.ScrollTab
+                android:id="@+id/stab_tab12"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F9F9F9"
+                android:orientation="vertical"
+                app:lib_pub_stab_avag="false"
+                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorPadding="20dp"
+                app:lib_pub_stab_indicatorRadius="0.5dp"
+                app:lib_pub_stab_indicatorType="none"
+                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWidth="40dp"
+                app:lib_pub_stab_type="view_group" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager1"
+                android:layout_width="match_parent"
+                android:layout_height="95dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
