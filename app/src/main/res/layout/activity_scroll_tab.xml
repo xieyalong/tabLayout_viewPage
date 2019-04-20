@@ -19,7 +19,12 @@
         app:lib_pub_stab_titles="标签A;标签B"
         app:lib_pub_stab_type="view_group" />
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="第一个viewpage布局"
+        android:gravity="center"
+        android:background="@color/colorPrimary"/>
     <com.xyl.tabLayout.view.tab.ScrollTab
         android:id="@+id/stab_tab00"
         android:layout_width="match_parent"
@@ -70,7 +75,12 @@
         android:id="@+id/pager0"
         android:layout_width="match_parent"
         android:layout_height="95dp" />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="第二个viewpage布局"
+        android:gravity="center"
+        android:background="@color/colorPrimary"/>
     <com.xyl.tabLayout.view.tab.ScrollTab
         android:id="@+id/stab_tab10"
         android:layout_width="match_parent"

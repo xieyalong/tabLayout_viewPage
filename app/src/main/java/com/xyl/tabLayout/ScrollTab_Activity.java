@@ -23,11 +23,20 @@ public class ScrollTab_Activity extends FragmentActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroll_tab);
-        ScrollTab[] scrollTab0 = new ScrollTab[]{(ScrollTab) findViewById(R.id.stab_tab00), (ScrollTab) findViewById(R.id.stab_tab01), (ScrollTab) findViewById(R.id.stab_tab02)};
-        ScrollTab[] scrollTab1 = new ScrollTab[]{(ScrollTab) findViewById(R.id.stab_tab10), (ScrollTab) findViewById(R.id.stab_tab11), (ScrollTab) findViewById(R.id.stab_tab12)};
+        //第一个viewpage布局
+        ScrollTab[] scrollTab0 = new ScrollTab[]{
+                (ScrollTab) findViewById(R.id.stab_tab00),
+                (ScrollTab) findViewById(R.id.stab_tab01),
+                (ScrollTab) findViewById(R.id.stab_tab02)};
         ViewPager pager0 = (ViewPager) findViewById(R.id.pager0);
-        ViewPager pager1 = (ViewPager) findViewById(R.id.pager1);
         initScrollTab(scrollTab0, pager0, Arrays.asList("Kitkat", "Lollipop", "M"));
+
+        //第二个viewpage布局
+        ScrollTab[] scrollTab1 = new ScrollTab[]{
+                (ScrollTab) findViewById(R.id.stab_tab10),
+                (ScrollTab) findViewById(R.id.stab_tab11),
+                (ScrollTab) findViewById(R.id.stab_tab12)};
+        ViewPager pager1 = (ViewPager) findViewById(R.id.pager1);
         initScrollTab(scrollTab1, pager1, Arrays.asList("Peach", "Lemon", "Watermelon", "Pear", "Avocado",
                 "Banana", "Grape", "Apricot", "Orange", "Kumquat"));
     }
@@ -73,7 +82,8 @@ public class ScrollTab_Activity extends FragmentActivity{
         });
         for (ScrollTab tab : tabs) {
             tab.setTitles(titles);
-            tab.setNumber(1, "90", View.VISIBLE);//title上的红点数字
+            //title上的红点数字
+            tab.setNumber(1, "90", View.VISIBLE);
             tab.setViewPager(pager);
             tab.setOnTabListener(new ScrollTab.OnTabListener() {
                 @Override
@@ -103,7 +113,7 @@ public class ScrollTab_Activity extends FragmentActivity{
 
             TextView tvContent = (TextView) rootView;
             tvContent.setGravity(Gravity.CENTER);
-            tvContent.setText(getArguments() != null ? "" + getArguments().getInt("index") : "");
+            tvContent.setText("viewPage="+(getArguments() != null ? "" + getArguments().getInt("index") : ""));
             return rootView;
         }
 
