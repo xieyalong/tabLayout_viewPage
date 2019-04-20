@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="100dp"
+    android:paddingRight="50dp"
+    android:paddingLeft="50dp">
+    <com.xyl.tabLayout.view.SegmentView
+        android:id="@+id/sv_tab0"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginTop="12dp"
+        app:lib_pub_segmentv_borderWidth="1dp"
+        app:lib_pub_segmentv_colorMain="#008577"
+        app:lib_pub_segmentv_colorSub="#ffffff"
+        app:lib_pub_segmentv_divideWidth="1dp"
+        app:lib_pub_segmentv_radius="4dp"
+        app:lib_pub_segmentv_textSize="15dp" />
+
+    <com.xyl.tabLayout.view.SegmentView
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginTop="30dp"
+        app:lib_pub_segmentv_borderWidth="2dp"
+        app:lib_pub_segmentv_colorMain="#008577"
+        app:lib_pub_segmentv_colorSub="#ffffff"
+        app:lib_pub_segmentv_divideWidth="4dp"
+        app:lib_pub_segmentv_radius="4dp"
+        app:lib_pub_segmentv_textSize="15dp"
+        app:lib_pub_segmentv_titles="标签一;标签二;标签三;标签四" />
+</LinearLayout>

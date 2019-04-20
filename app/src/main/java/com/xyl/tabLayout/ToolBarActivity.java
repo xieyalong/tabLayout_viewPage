@@ -1,5 +1,6 @@
 package com.xyl.tabLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,12 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.module_ui_activity_toolbar);
+
+
+        findViewById(R.id.tv_ScrollTab).setOnClickListener(this);
+        findViewById(R.id.tv_BottomThirdBar).setOnClickListener(this);
+        findViewById(R.id.tv_SegmentView).setOnClickListener(this);
+
         initBtBar();
 
         initSegment();
@@ -39,6 +46,22 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
                 "Banana", "Grape", "Apricot", "Orange", "Kumquat"));
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.tv_ScrollTab:
+                startActivity(new Intent(this,ScrollTab_Activity.class));
+                break;
+            case R.id.tv_BottomThirdBar:
+                startActivity(new Intent(this,BottomThirdBar_Activity.class));
+                break;
+            case R.id.tv_SegmentView:
+                startActivity(new Intent(this,SegmentView_Activity.class));
+                break;
+
+
+        }
+    }
     private void initBtBar() {
         BottomThirdBar[] btbBars = new BottomThirdBar[]{
                 findViewById(R.id.btb_bar0),
@@ -46,8 +69,8 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
                 findViewById(R.id.btb_bar2),
                 findViewById(R.id.btb_bar3)};
         btbBars[0].create(Arrays.asList(
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.drawable.lib_pub_ic_btb_icon,"分享"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.drawable.lib_pub_ic_btb_icon, "下载")),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.mipmap.ic_launcher,"分享"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.mipmap.ic_launcher, "下载")),
                 new BottomThirdBar.OnClickListener() {
                     @Override
                     public void onClick(int position, BottomThirdBar.Item item) {
@@ -55,9 +78,9 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
                     }
                 });
         btbBars[1].create(Arrays.asList(
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.drawable.lib_pub_ic_btb_icon, "分享"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.drawable.lib_pub_ic_btb_icon, "下载"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_MOVE, R.drawable.lib_pub_ic_btb_icon,"移动")
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.mipmap.ic_launcher, "分享"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.mipmap.ic_launcher, "下载"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_MOVE, R.mipmap.ic_launcher,"移动")
         ), new BottomThirdBar.OnClickListener() {
             @Override
             public void onClick(int position, BottomThirdBar.Item item) {
@@ -65,12 +88,12 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
             }
         });
         btbBars[2].create(Arrays.asList(
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.drawable.lib_pub_ic_btb_icon, "分享"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.drawable.lib_pub_ic_btb_icon, "下载"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_MOVE, R.drawable.lib_pub_ic_btb_icon,"移动"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DELETE, R.drawable.lib_pub_ic_btb_icon, "删除"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_RENAME, R.drawable.lib_pub_ic_btb_icon, "重命名"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon,"详情")),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.mipmap.ic_launcher, "分享"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.mipmap.ic_launcher, "下载"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_MOVE, R.mipmap.ic_launcher,"移动"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DELETE, R.mipmap.ic_launcher, "删除"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_RENAME, R.mipmap.ic_launcher, "重命名"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher,"详情")),
                 new BottomThirdBar.OnClickListener() {
                     @Override
                     public void onClick(int position, BottomThirdBar.Item item) {
@@ -78,16 +101,16 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
                     }
                 });
         btbBars[3].create(Arrays.asList(
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签"),
-                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.drawable.lib_pub_ic_btb_icon, "标签")),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签"),
+                new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_INFO, R.mipmap.ic_launcher, "标签")),
                 new BottomThirdBar.OnClickListener() {
                     @Override
                     public void onClick(int position, BottomThirdBar.Item item) {
@@ -127,7 +150,7 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
         pager.addOnPageChangeListener(this);
         for (ScrollTab tab : tabs) {
             tab.setTitles(titles);
-            tab.setNumber(1, "9", View.VISIBLE);//Set the red dot
+            tab.setNumber(1, "90", View.VISIBLE);//title上的红点数字
             tab.setViewPager(pager);
             tab.setOnTabListener(new ScrollTab.OnTabListener() {
                 @Override
@@ -153,10 +176,6 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
 
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 
 
     public static class TabFragment extends Fragment {

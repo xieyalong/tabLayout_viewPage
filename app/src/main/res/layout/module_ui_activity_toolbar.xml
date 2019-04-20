@@ -15,7 +15,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp">
-
+            <TextView
+                android:id="@+id/tv_ScrollTab"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="ScrollTab"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_BottomThirdBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="BottomThirdBar"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_SegmentView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="SegmentView"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

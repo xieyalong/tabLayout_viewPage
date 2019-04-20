@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ScrollTab_Activity"/>
+        <activity android:name=".BottomThirdBar_Activity"/>
+        <activity android:name=".SegmentView_Activity"/>
     </application>
 
 </manifest>
