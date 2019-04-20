@@ -96,7 +96,7 @@ public class ScrollTab_Activity extends FragmentActivity{
 
 
 
-    public static class TabFragment extends Fragment {
+    public static   class TabFragment extends Fragment {
         private View rootView;
 
         @Nullable
