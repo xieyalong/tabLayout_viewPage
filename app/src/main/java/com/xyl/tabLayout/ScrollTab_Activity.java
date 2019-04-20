@@ -24,8 +24,11 @@ public class ScrollTab_Activity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroll_tab);
         //第一个viewpage布局
+        ScrollTab stab_tab00=findViewById(R.id.stab_tab00);
+        stab_tab00.setmTextColor(R.color.colorAccent);
+        stab_tab00.setmTextColorFocus(R.color.colorPrimary);
         ScrollTab[] scrollTab0 = new ScrollTab[]{
-                (ScrollTab) findViewById(R.id.stab_tab00),
+                stab_tab00 ,
                 (ScrollTab) findViewById(R.id.stab_tab01),
                 (ScrollTab) findViewById(R.id.stab_tab02)};
         ViewPager pager0 = (ViewPager) findViewById(R.id.pager0);

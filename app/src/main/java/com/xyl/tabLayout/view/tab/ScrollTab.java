@@ -68,6 +68,9 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
     private ViewPager mViewPager;
     private OnTabListener mListener;
 
+    private int mTextColor=R.color.color_red; // Title文字颜色
+    private int mTextColorFocus=R.color.color_green; // Title文字颜色
+
     public ScrollTab(Context context) {
         this(context, null);
     }
@@ -89,11 +92,14 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
         mPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_padding, dip2px(context, 12));
         mStrTitles = typedArray.getString(R.styleable.lib_pub_ScrollTab_lib_pub_stab_titles);
         mIndicatorType = typedArray.getInt(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorType, TYPE_INDICATOR_TREND);
+        //下划线颜色
         mIndicatorColor = typedArray.getColor(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorColor, ContextCompat.getColor(context, R.color.colorAccent));
         mIndicatorWidth = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWidth, dip2px(context, 30));
         mIndicatorWeight = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorWeight, dip2px(context, 1));
         mIndicatorRadius = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorRadius, dip2px(context, 0.5f));
         mIndicatorPadding = typedArray.getDimension(R.styleable.lib_pub_ScrollTab_lib_pub_stab_indicatorPadding, dip2px(context, 5));
+//        mTextColorFocus = typedArray.getColor(R.styleable.lib_pub_ScrollTab_lib_pub_stab_textColorFocus, ContextCompat.getColor(context, R.color.colorAccent));
+//        mTextColor= typedArray.getColor(R.styleable.lib_pub_ScrollTab_lib_pub_stab_textColor, ContextCompat.getColor(context, R.color.colorAccent));
         typedArray.recycle();
     }
 
@@ -160,12 +166,13 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
         } else {
             child = new TabViewGroup(mContext);
         }
+//        R.color.colorAccent : R.color.colorPrimary
         ((TabView) child).setText(mItems.get(i).title);
         ((TabView) child).setNumber(mItems.get(i).text, TextUtils.isEmpty(mItems.get(i).text) ? GONE : VISIBLE);
         if (!mIsAvag) {
             ((TabView) child).setPadding((int) mPadding);
         }
-        ((TabView) child).notifyData(i == mPosition);
+        ((TabView) child).notifyData(i == mPosition,mTextColor ,mTextColorFocus);
         child.setLayoutParams(new LinearLayout.LayoutParams(mIsAvag ? mWidth / (mCount > 0 ? mCount : 1) : ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
         child.setTag(i);
@@ -245,7 +252,7 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
     private void onChange(int position) {
         for (int i = 0; i < mCount; i++) {
             TabView view = (TabView) mTabs.get(i);
-            view.notifyData(i == position);
+            view.notifyData(i == position,mTextColor,mTextColorFocus);
         }
     }
 
@@ -320,5 +327,13 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
     public static int dip2px(Context context, float dpValue) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         return (int) (dpValue * (metrics.densityDpi / 160f));
+    }
+
+    public void setmTextColor(int mTextColor) {
+        this.mTextColor = mTextColor;
+    }
+
+    public void setmTextColorFocus(int mTextColorFocus) {
+        this.mTextColorFocus = mTextColorFocus;
     }
 }

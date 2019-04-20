@@ -11,7 +11,6 @@ public interface TabView {
 
     void setNumber(String text, int visibility);
 
-    void notifyData(boolean focus);
-
+    void notifyData(boolean focus,int mTextColor,int mTextColorFocus);
     void onScroll(float factor);
 }

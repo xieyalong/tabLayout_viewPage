@@ -36,7 +36,11 @@ public class TabTextView extends View implements TabView {
     public TabTextView(Context context) {
         this(context, null);
     }
-
+    public TabTextView(Context context,int mTextColor,int mTextColorFocus) {
+        this(context, null);
+        this.mTextColorFocus=mTextColorFocus;
+        this.mTextColor=mTextColor;
+    }
     public TabTextView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
@@ -48,9 +52,12 @@ public class TabTextView extends View implements TabView {
 
     private void init(Context context) {
         mTextSize = dip2px(context, 15);
-        mTextColor = ContextCompat.getColor(context, R.color.colorPrimary);
-        mTextColorFocus = ContextCompat.getColor(context, R.color.colorAccent);
-
+        if (0==mTextColor){
+            mTextColor = ContextCompat.getColor(context, R.color.colorAccent);
+        }
+        if(0==mTextColorFocus){
+            mTextColorFocus = ContextCompat.getColor(context, R.color.colorPrimary);
+        }
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(mTextSize);
@@ -96,7 +103,7 @@ public class TabTextView extends View implements TabView {
     }
 
     @Override
-    public void notifyData(boolean focus) {
+    public void notifyData(boolean focus,int mTextColor,int mTextColorFocus) {
         this.mPaint.setColor(focus ? mTextColorFocus : mTextColor);
         invalidate();
     }
@@ -121,4 +128,6 @@ public class TabTextView extends View implements TabView {
         paint.getTextBounds(str, 0, str.length(), bounds);
         return bounds.width();
     }
+
+
 }

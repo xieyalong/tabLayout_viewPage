@@ -16,6 +16,8 @@
             <enum name="none" value="2" />
         </attr>
         <attr name="lib_pub_stab_indicatorColor" format="color" />
+        <attr name="lib_pub_stab_textColor" format="color" />
+        <attr name="lib_pub_stab_textColorFocus" format="color" />
         <attr name="lib_pub_stab_indicatorWidth" format="dimension" />
         <attr name="lib_pub_stab_indicatorWeight" format="dimension" />
         <attr name="lib_pub_stab_indicatorRadius" format="dimension" />

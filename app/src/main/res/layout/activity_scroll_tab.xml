@@ -41,11 +41,14 @@
                 android:background="#F9F9F9"
                 android:orientation="vertical"
                 app:lib_pub_stab_avag="true"
-                app:lib_pub_stab_indicatorColor="#008577"
+                app:lib_pub_stab_indicatorColor="#5E5F64"
+                app:lib_pub_stab_textColorFocus="@color/colorPrimary"
+                app:lib_pub_stab_textColor="@color/colorAccent"
+
                 app:lib_pub_stab_indicatorPadding="20dp"
                 app:lib_pub_stab_indicatorRadius="0.5dp"
                 app:lib_pub_stab_indicatorType="trend"
-                app:lib_pub_stab_indicatorWeight="1dp"
+                app:lib_pub_stab_indicatorWeight="10dp"
                 app:lib_pub_stab_indicatorWidth="40dp"
                 app:lib_pub_stab_type="view_group" />
 

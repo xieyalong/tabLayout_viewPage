@@ -18,10 +18,18 @@ import com.xyl.tabLayout.R;
 public class TabViewGroup extends RelativeLayout implements TabView {
     private Context mContext;
     private TextView mTvTitle, mTvNumber;
-
+    private int mTextColor; // Title文字颜色
+    private int mTextColorFocus; // Title文字颜色
     public TabViewGroup(Context context) {
         super(context);
         init(context);
+    }
+    public TabViewGroup(Context context,int mTextColor,int mTextColorFocus) {
+        super(context);
+        this.mTextColorFocus=mTextColorFocus;
+        this.mTextColor=mTextColor;
+        init(context);
+
     }
 
     public TabViewGroup(Context context, AttributeSet attrs) {
@@ -58,8 +66,16 @@ public class TabViewGroup extends RelativeLayout implements TabView {
     }
 
     @Override
-    public void notifyData(boolean focus) {
-        mTvTitle.setTextColor(ContextCompat.getColor(mContext, focus ? R.color.colorPrimary : R.color.colorAccent));
+    public void notifyData(boolean focus,int mTextColor,int mTextColorFocus) {
+        int color=0;
+        if (focus){
+            color=ContextCompat.getColor(mContext,mTextColor);
+        }else{
+            color=ContextCompat.getColor(mContext,mTextColorFocus);
+        }
+//        mTvTitle.setTextColor(ContextCompat.getColor(mContext, focus ? R.color.colorAccent : R.color.colorPrimary));
+        mTvTitle.setTextColor(color);
+
     }
 
     @Override
