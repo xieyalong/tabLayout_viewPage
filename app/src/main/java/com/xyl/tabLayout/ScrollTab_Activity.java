@@ -67,17 +67,17 @@ public class ScrollTab_Activity extends FragmentActivity{
 
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-
+                System.out.println(">]1");
             }
 
             @Override
             public void onPageSelected(int i) {
-
+                System.out.println(">]2");
             }
 
             @Override
             public void onPageScrollStateChanged(int i) {
-
+                System.out.println(">]3");
             }
         });
         for (ScrollTab tab : tabs) {
