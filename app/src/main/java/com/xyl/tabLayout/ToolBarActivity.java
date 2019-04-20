@@ -26,10 +26,6 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.module_ui_activity_toolbar);
-        initView();
-    }
-    private void initView() {
-
         initBtBar();
 
         initSegment();
