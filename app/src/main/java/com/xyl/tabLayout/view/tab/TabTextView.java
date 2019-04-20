@@ -52,16 +52,16 @@ public class TabTextView extends View implements TabView {
 
     private void init(Context context) {
         mTextSize = dip2px(context, 15);
-        if (0==mTextColor){
-            mTextColor = ContextCompat.getColor(context, R.color.colorAccent);
-        }
-        if(0==mTextColorFocus){
-            mTextColorFocus = ContextCompat.getColor(context, R.color.colorPrimary);
-        }
+//        if (0==mTextColor){
+//            mTextColor = ContextCompat.getColor(context, R.color.colorAccent);
+//        }
+//        if(0==mTextColorFocus){
+//            mTextColorFocus = ContextCompat.getColor(context, R.color.colorPrimary);
+//        }
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(mTextSize);
-        mPaint.setColor(mTextColor);
+//        mPaint.setColor(mTextColor);
 
         mTextHeight = getTextHeight(mPaint);
     }
