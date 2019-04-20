@@ -44,11 +44,11 @@ public class ToolBarActivity extends FragmentActivity implements View.OnClickLis
     }
 
     private void initBtBar() {
-        BottomThirdBar[] btbBars = new BottomThirdBar[]{ViewHelper.findView(this, R.id.btb_bar0),
-                ViewHelper.findView(this, R.id.btb_bar1),
-                ViewHelper.findView(this, R.id.btb_bar2),
-                ViewHelper.findView(this, R.id.btb_bar3)};
-
+        BottomThirdBar[] btbBars = new BottomThirdBar[]{
+                findViewById(R.id.btb_bar0),
+                findViewById(R.id.btb_bar1),
+                findViewById(R.id.btb_bar2),
+                findViewById(R.id.btb_bar3)};
         btbBars[0].create(Arrays.asList(
                 new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_SHARE, R.drawable.lib_pub_ic_btb_icon,"分享"),
                 new BottomThirdBar.Item(BottomThirdBar.Item.TYPE_DOWNLOAD, R.drawable.lib_pub_ic_btb_icon, "下载")),
