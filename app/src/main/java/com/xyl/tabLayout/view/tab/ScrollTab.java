@@ -165,7 +165,7 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
      * @param <T>
      * @return
      */
-    protected <T extends View> T getTextView() {
+    public  <T extends View> T getTextView() {
         return (T) child;
     }
 
