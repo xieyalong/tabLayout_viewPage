@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -159,8 +160,18 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
         addView(parent);
     }
 
+    /**
+     * 判断是否TabTextView还是TabViewGroup
+     * @param <T>
+     * @return
+     */
+    protected <T extends View> T getTextView() {
+        return (T) child;
+    }
+
+    View child;
     private View getTabView(int i) {
-        View child;
+
         if (mType == TYPE_VIEW) {
             child = new TabTextView(mContext);
         } else {
