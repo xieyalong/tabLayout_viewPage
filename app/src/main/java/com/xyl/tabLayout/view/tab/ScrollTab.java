@@ -161,7 +161,7 @@ public class ScrollTab extends HorizontalScrollView implements View.OnClickListe
     }
 
     /**
-     * 判断是否TabTextView还是TabViewGroup
+     * 用TabTextView或者TabViewGroup来接收
      * @param <T>
      * @return
      */
